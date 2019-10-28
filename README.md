@@ -1,6 +1,6 @@
 # TriviaGame
 
-## Techbologies used:
+## Technologies used:
 Visual Studio Code, jQuery library, Google fonts, giphy.com.
 
 ## Summary: The purpose of this assignment was to test drive the more immediate skills we've learned with jQuery. I had a lot of fun with this assignment and I learned a lot just working through it. jQuery selectors were used to add methods to change html elements. I was able to get most features in place other than scorekeeping, which I tried many different methods to accomplish.
