@@ -2,8 +2,29 @@
 var correct = 0;
 var wrong = 0;
 var noAnswer = 0;
+var rightAnswer = $("#questionsRight");
+var wrongAnswer = $("#questionsWrong");
+var unanswered = $("#unanswered");
+var userAnswer = "";
+// var Array = [correct, wrong, noAnswer];
+// var Array[0] = correct++;
+// var Array[1] = wrong++;
+// var Array[2] = noAnswer++;
+// var answerRight = function answer(){
+//     if ($(".correctAnswer")) === true);
+//     correct++};
+//  var trumpWrong = function wrongAnswer (){ 
+//      if ($(".wrongAnswer")) === true;
+//  wrong++;};  
+ 
+// var leftUnanswered = function(){
+//     if($(".correctAnswer")) && $(".wrongAnswer")) === false);
+//         noAnswer++;
+// };
+
 var hiddenContainer = $("#mainContainer2").hide();
 var results = $("#mainContainer3").hide();
+//variables to establish clock and have it countdown
 var count = 120;
 var timeStart = function() {
     $("#time").html(count);
@@ -13,6 +34,7 @@ function startTime(){
     count--; 
 };
 };
+var end = count - 5;
 
 
 // Allow the doc to be loaded and ready
@@ -30,16 +52,33 @@ $(document).ready(function() {
     if ($("#maincontainer2").show === true);
      console.log("this is true");
      timeStart();
-     if (count == 115);
-     $("#mainContainer2").hide();
-     $("#mainContainer3").show();
      
+     $("#correctAnswer").click(function(){
+        correct++;
+    $(questionsRight).html(correct);
+    $("#wrongAnswer").click(function(){
+        wrong++;
+
+    })
+    });
+    //  var answerRight = function answer(){
+    //     if ($(".correctAnswer")) === true);
+    //     correct++;};
+    //  var trumpWrong = function wrongAnswer (){ 
+    //      if ($(".wrongAnswer")) === true;
+    //  wrong++;};  
+     
+    // var leftUnanswered = function(){
+    //     if($(".correctAnswer")) && $(".wrongAnswer")) === false);
+    //         noAnswer++;
+    // };
 //question set will be removed and results page will be shown
     $("#submit").click(function(){
         $("#mainContainer3").hide();
         $("#mainContainer2").remove();
         $("#mainContainer3").show();
-         
+        $("resultspage").show();
+        
 
     
 });
