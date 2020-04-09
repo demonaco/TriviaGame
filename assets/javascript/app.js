@@ -1,16 +1,12 @@
 // global variables
+$("#startGame").on("click", function(){
+    game.start();
+})
 
+$(document).on('click', '#end', function(){
+    game.done();
+})
 
-
-var game = {
-    correct: 0,
-    incorrect: 0,
-    counter: 120,
-    countdown: function () {
-        game.counter--;
-        $("#")
-    }
-}
 
 var questions = [{
     question: "1. Which 2 characters in A New Hope say the lines 'I have a bad feeling about this'?",
@@ -71,6 +67,7 @@ var game = {
                         $("#subwrapper").append("<input type='radio' name='question-" + i + "' value='" + questions[i].answers[j] + "'>" + questions[i].answers[j])
                     }
                 }
+                $("#subwrapper").append("<br><button id='end'>These aren't the droids you're looking for..</button>");
             },
             done: function() {
                 $.each($('input[name="question-0]":checked'), function(){
@@ -141,8 +138,8 @@ var game = {
                 $('#subwrapper').append("<h3>Unanswered: " + (questions.length-(this.incorrect+this.correct)) + "<h3>");
 
             }
-    }
-
+    } 
+    
 
 
 
