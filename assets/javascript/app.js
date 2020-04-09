@@ -1,24 +1,12 @@
 // global variables
 
-$("document").ready(function () {
-$("#startGame").on("click", function(){
-    console.log("you clicked");
-    $("#startGame").remove();
-    $("#ewok").remove();
-    for (var i = 0; i < questions.length; i++) {
-        $("#subwrapper").append('<h2>' + questions[i].question + '</h2>')
-        for(var j = 0; j < questions[i].answers.length; j++) {
-            $("#subwrapper").append("<input type='radio' name='question-"+i+"' value='"+questions[i].answers[j]+"'>"+questions[i].answers[j])
-        }
-    }
-})
-})
+
 
 var game = {
     correct: 0,
     incorrect: 0,
     counter: 120,
-    countdown: function() {
+    countdown: function () {
         game.counter--;
         $("#")
     }
@@ -45,20 +33,115 @@ var questions = [{
     question: "5. What is Admiral Ackbar's first name?",
     answers: ["Moff", "Adair", "Gial", "Tamson"],
     correctAnswer: "Gial"
-    }, {
+}, {
     question: "6. What is the Emperor's name?",
     answers: ["Grevious", "Palpatine", "Nero", "Dooku"],
     correctAnswer: "Palpatine"
-    },
+},
 {
     question: "7. How did Han Solo acquire the Millenium Falcom?",
     answers: ["Assembled it from scrap", "Salvaged a derelict", "Stole it from the Empire", "Won in a card game"],
     correctAnswer: "Won in a card game"
-        }, {
+}, {
     question: "8. What color lightsaber does Mace Windu carry?",
     answers: ["blue", "green", "purple", "red"],
     correctAnswer: "purple"
-            }]
+}];
+
+var game = {
+    correct: 0,
+    incorrect: 0,
+    counter: 120,
+    countdown: function () {
+        game.counter--;
+        $('#counter').html(game.counter);
+        if (game.counter <= 0) {
+            alert("Time's up!");
+            game.done();
+        }
+    },
+    start: function() {
+        timer = setInterval(game.countdown, 1000);
+            $("#subwrapper").prepend('<h2>Time Remaining: <span id="counter" >120</span> seconds</h2>');
+                $("#startGame").remove();
+                $("#ewok").remove();
+                for (var i = 0; i < questions.length; i++) {
+                    $("#subwrapper").append('<h2>' + questions[i].question + '</h2>')
+                    for (var j = 0; j < questions[i].answers.length; j++) {
+                        $("#subwrapper").append("<input type='radio' name='question-" + i + "' value='" + questions[i].answers[j] + "'>" + questions[i].answers[j])
+                    }
+                }
+            },
+            done: function() {
+                $.each($('input[name="question-0]":checked'), function(){
+                    if($(this).val()==questions[0].correctAnswer) {
+                        game.correct++; 
+                    } else {
+                        game.incorrect--;
+                    }
+                });
+                $.each($('input[name="question-1]":checked'), function(){
+                    if($(this).val()==questions[1].correctAnswer) {
+                        game.correct++; 
+                    } else {
+                        game.incorrect--;
+                    }
+                });
+                $.each($('input[name="question-2]":checked'), function(){
+                    if($(this).val()==questions[2].correctAnswer) {
+                        game.correct++; 
+                    } else {
+                        game.incorrect--;
+                    }
+                });
+                $.each($('input[name="question-3]":checked'), function(){
+                    if($(this).val()==questions[3].correctAnswer) {
+                        game.correct++; 
+                    } else {
+                        game.incorrect--;
+                    }
+                });
+                $.each($('input[name="question-4]":checked'), function(){
+                    if($(this).val()==questions[4].correctAnswer) {
+                        game.correct++; 
+                    } else {
+                        game.incorrect--;
+                    }
+                });
+                $.each($('input[name="question-5]":checked'), function(){
+                    if($(this).val()==questions[5].correctAnswer) {
+                        game.correct++; 
+                    } else {
+                        game.incorrect--;
+                    }
+                });
+                $.each($('input[name="question-6]":checked'), function(){
+                    if($(this).val()==questions[6].correctAnswer) {
+                        game.correct++; 
+                    } else {
+                        game.incorrect--;
+                    }
+                });
+                $.each($('input[name="question-7]":checked'), function(){
+                    if($(this).val()==questions[7].correctAnswer) {
+                        game.correct++; 
+                    } else {
+                        game.incorrect--;
+                    }
+                });
+
+                this.result();
+            },
+            result: function(){
+                clearInterval(timer);
+                $('#subwrapper h2').remove();
+                $('#subwrapper').html("<h2>Finished!</h2>")
+                $('#subwrapper').append("<h3>Correct answers: " + this.correct + "<h3>");
+                $('#subwrapper').append("<h3>Incorrect answers: " + this.incorrect + "<h3>");
+                $('#subwrapper').append("<h3>Unanswered: " + (questions.length-(this.incorrect+this.correct)) + "<h3>");
+
+            }
+    }
 
 
 
@@ -99,7 +182,7 @@ var questions = [{
 
 //         }
 
-        
+
 
 //         $("#correctAnswer").click(function () {
 //             correct++;
