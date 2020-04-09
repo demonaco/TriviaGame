@@ -1,5 +1,29 @@
 // global variables
 
+$("document").ready(function () {
+$("#startGame").on("click", function(){
+    console.log("you clicked");
+    $("#startGame").remove();
+    $("#ewok").remove();
+    for (var i = 0; i < questions.length; i++) {
+        $("#subwrapper").append('<h2>' + questions[i].question + '</h2>')
+        for(var j = 0; j < questions[i].answers.length; j++) {
+            $("#subwrapper").append("<input type='radio' name='question-"+i+"' value='"+questions[i].answers[j]+"'>"+questions[i].answers[j])
+        }
+    }
+})
+})
+
+var game = {
+    correct: 0,
+    incorrect: 0,
+    counter: 120,
+    countdown: function() {
+        game.counter--;
+        $("#")
+    }
+}
+
 var questions = [{
     question: "1. Which 2 characters in A New Hope say the lines 'I have a bad feeling about this'?",
     answers: ["Han & Luke", "Obi-Wan & Luke", "Obi-Wan & Luke", "Han & Obi-Wan"],
@@ -38,68 +62,53 @@ var questions = [{
 
 
 
-var correct = 0;
-var wrong = 0;
-var noAnswer = 0;
-var rightAnswer = $("#questionsRight");
-var wrongAnswer = $("#questionsWrong");
-var unanswered = $("#unanswered");
-var userAnswer = "";
-// var Array = [correct, wrong, noAnswer];
-// var Array[0] = correct++;
-// var Array[1] = wrong++;
-// var Array[2] = noAnswer++;
-// var answerRight = function answer(){
-//     if ($(".correctAnswer")) === true);
-//     correct++};
-//  var trumpWrong = function wrongAnswer (){ 
-//      if ($(".wrongAnswer")) === true;
-//  wrong++;};  
 
-// var leftUnanswered = function(){
-//     if($(".correctAnswer")) && $(".wrongAnswer")) === false);
-//         noAnswer++;
+// var hiddenContainer = $("#mainContainer2").hide();
+// var results = $("#mainContainer3").hide();
+// //variables to establish clock and have it countdown
+// var count = 120;
+// var timeStart = function () {
+//     $("#time").html(count);
+//     setInterval(startTime, 1000);
+//     function startTime() {
+//         $("#time").html(count);
+//         count--;
+//     };
 // };
-
-var hiddenContainer = $("#mainContainer2").hide();
-var results = $("#mainContainer3").hide();
-//variables to establish clock and have it countdown
-var count = 120;
-var timeStart = function () {
-    $("#time").html(count);
-    setInterval(startTime, 1000);
-    function startTime() {
-        $("#time").html(count);
-        count--;
-    };
-};
-var end = count - 5;
+// var end = count - 5;
 
 
 // Allow the doc to be loaded and ready
 // when the button is clicked to submit questions, the main container div will be toggled
 
-$(document).ready(function () {
-    //set elements to first be hidden before click actions
-    $("#mainContainer2").hide();
-    $("#mainContainer3").hide();
-    //start game div will be removed and question set will be shown
-    $("#startGame").click(function () {
-        console.log("hello!");
-        $("#mainContainer1").remove();
-        $("#mainContainer2").show();
-        if ($("#maincontainer2").show === true);
-        console.log("this is true");
-        timeStart();
+// $(document).ready(function () {
+//     //set elements to first be hidden before click actions
+//     $("#mainContainer2").hide();
+//     $("#mainContainer3").hide();
+//     //start game div will be removed and question set will be shown
+//     $("#startGame").click(function () {
+//         console.log("hello!");
+//         $("#mainContainer1").remove();
+//         $("#mainContainer2").show();
+//         if ($("#maincontainer2").show === true);
+//         console.log("this is true");
+//         timeStart();
+//         if ($("input").val = "correctAnswer") {
+//             $("#questionsRight")++
+//         }
 
-        $("#correctAnswer").click(function () {
-            correct++;
-            $(questionsRight).html(correct);
-            $("#wrongAnswer").click(function () {
-                wrong++;
+//         }
 
-            })
-        });
+        
+
+//         $("#correctAnswer").click(function () {
+//             correct++;
+//             $(questionsRight).html(correct);
+//             $("#wrongAnswer").click(function () {
+//                 wrong++;
+
+//             })
+//         });
         //  var answerRight = function answer(){
         //     if ($(".correctAnswer")) === true);
         //     correct++;};
@@ -112,14 +121,18 @@ $(document).ready(function () {
         //         noAnswer++;
         // };
         //question set will be removed and results page will be shown
-        $("#submit").click(function () {
-            $("#mainContainer3").hide();
-            $("#mainContainer2").remove();
-            $("#mainContainer3").show();
-            $("resultspage").show();
+//         $("#submit").click(function () {
+//             $("#mainContainer3").hide();
+//             $("#mainContainer2").remove();
+//             $("#mainContainer3").show();
+//             $("resultspage").show();
+
+//             // function result() {
+//             //     clearInterval(timeStart);
+//             // }
 
 
 
-        });
-    });
-});
+//         });
+//     });
+// });
