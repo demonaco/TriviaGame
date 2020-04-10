@@ -136,9 +136,11 @@ var game = {
         clearInterval(timer);
         $('#wrapper h2').remove();
         $('#wrapper').html("<h2>Finished!</h2>");
-        $('#wrapper').append("<h3>Correct answers: " + this.correct + "</h3>");
-        $('#wrapper').append("<h3>Incorrect answers: " + this.incorrect + "</h3>");
-        $('#wrapper').append("<h3>Unanswered: " + (questions.length - (this.incorrect + this.correct)) + "</h3>");
+        $('#wrapper').append("<br><h3>Correct answers: " + this.correct + "</h3>");
+        $('#wrapper').append("<br><h3>Incorrect answers: " + this.incorrect + "</h3>");
+        $('#wrapper').append("<br><h3>Unanswered: " + (questions.length - (this.incorrect + this.correct)) + "</h3>");
+        $("#wrapper").append("<img src='https://media.giphy.com/media/3ornjPteRwwUdSWifC/giphy.gif'>");
+        $("#wrapper").append("<h3>Great Job! Raise the roof!</h3>");
 
     }
 }
