@@ -61,16 +61,16 @@ var game = {
     },
     start: function () {
         timer = setInterval(game.countdown, 1000);
-        $("#subwrapper").prepend('<h2>Time Remaining: <span id="counter" >120</span> seconds</h2>');
+        $("#wrapper").prepend('<h3>Time Remaining: <span id="counter" >120</span> seconds</h3>');
         $("#startGame").remove();
         $("#ewok").remove();
         for (var i = 0; i < questions.length; i++) {
-            $("#subwrapper").append('<h2>' + questions[i].question + '</h2>')
+            $("#wrapper").append('<p>' + questions[i].question + '</p>')
             for (var j = 0; j < questions[i].answers.length; j++) {
-                $("#subwrapper").append("<input type='radio' name='question-" + i + "' value='" + questions[i].answers[j] + "'>" + questions[i].answers[j])
+                $("#wrapper").append("<input type='radio' name='question-" + i + "' value='" + questions[i].answers[j] + "'>" + questions[i].answers[j])
             }
         }
-        $("#subwrapper").append("<br><button id='end'>These aren't the droids you're looking for..</button>");
+        $("#wrapper").append("<br><br><button id='end'>These aren't the droids you're looking for..</button>");
     },
     done: function () {
         $.each($('input[name="question-0"]:checked'), function () {
@@ -134,11 +134,11 @@ var game = {
     },
     result: function () {
         clearInterval(timer);
-        $('#subwrapper h2').remove();
-        $('#subwrapper').html("<h2>Finished!</h2>");
-        $('#subwrapper').append("<h3>Correct answers: " + this.correct + "</h3>");
-        $('#subwrapper').append("<h3>Incorrect answers: " + this.incorrect + "</h3>");
-        $('#subwrapper').append("<h3>Unanswered: " + (questions.length - (this.incorrect + this.correct)) + "</h3>");
+        $('#wrapper h2').remove();
+        $('#wrapper').html("<h2>Finished!</h2>");
+        $('#wrapper').append("<h3>Correct answers: " + this.correct + "</h3>");
+        $('#wrapper').append("<h3>Incorrect answers: " + this.incorrect + "</h3>");
+        $('#wrapper').append("<h3>Unanswered: " + (questions.length - (this.incorrect + this.correct)) + "</h3>");
 
     }
 }
